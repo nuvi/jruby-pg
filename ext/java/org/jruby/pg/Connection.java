@@ -1430,10 +1430,10 @@ public class Connection extends RubyObject {
     }
 
     RubyString rubyMessage = context.runtime.newString(message);
-    if(encoding != null) {
-      RubyEncoding rubyEncoding = RubyEncoding.newEncoding(context.runtime, encoding);
-      rubyMessage = (RubyString) rubyMessage.encode(context, rubyEncoding);
-    }
+    // if(encoding != null) {
+    //   RubyEncoding rubyEncoding = RubyEncoding.newEncoding(context.runtime, encoding);
+    //   rubyMessage = (RubyString) rubyMessage.encode(context, rubyEncoding);
+    // }
     Block eBlock = Block.NULL_BLOCK;
     RubyObject exception = (RubyObject) klass.newInstance(context, rubyMessage, eBlock);
     exception.setInstanceVariable("@connection", this);
